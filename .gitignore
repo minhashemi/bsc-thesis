@@ -1,0 +1,55 @@
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Data files (ignore everything in data except code)
+data/*
+!data/*.py
+!data/__init__.py
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Model files (ignore directories and binary weights in models/ but keep code)
+models/*
+!models/*.py
+!models/__init__.py
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.zip
+
+# Checkpoints and logs
+checkpoints/
+reports/
+logs/
+*.log
+
+# Configuration with secrets
+.env
+config/local.yaml
+
+# OS metadata
+Thumbs.db

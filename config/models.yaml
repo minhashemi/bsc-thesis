@@ -1,0 +1,125 @@
+whisper:
+  type: whisper
+  size: base                    # tiny | base | small | medium | large
+  language: fa
+  audio_input:
+    sample_rate: 16000          # Hz
+    channels: mono              # mono | stereo
+    format: float32             # float32 (normalised −1…1)
+    trim_silence_db: 60         # top_db value for librosa silence trim
+    normalize_volume: true      # peak-normalise to 1.0
+
+omnilingual:
+  type: omnilingual
+  model_id: facebook/mms-1b-all
+  language: fa
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+vosk:
+  type: vosk
+  language: fa
+  size: small                   # small | large  (used for auto-download URL)
+  model_path: null              # null → auto-download; set a path to skip
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: int16               # Vosk expects raw int16 PCM bytes
+    trim_silence_db: 60
+    normalize_volume: true
+
+gemini_3.5_flash:
+  type: gemini_direct
+  model_id: gemini-3.5-flash
+  language: fa
+  prompt_path: config/gemini_direct_prompt.txt
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+gemini_3_flash:
+  type: gemini_direct
+  model_id: gemini-3.0-flash
+  language: fa
+  prompt_path: config/gemini_direct_prompt.txt
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+gemini_2.5_flash:
+  type: gemini_direct
+  model_id: gemini-2.5-flash
+  language: fa
+  prompt_path: config/gemini_direct_prompt.txt
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+whisper_large:
+  type: whisper
+  size: large-v3                # We use large-v3 for the best performance
+  language: fa
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+whisper_fine_tuned:
+  type: hf_whisper
+  model_id_or_path: ./models/whisper-large-v3-persian-child
+  language: fa
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+whisper_base:
+  type: whisper
+  size: base
+  language: fa
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+whisper_base_fine_tuned:
+  type: hf_whisper
+  model_id_or_path: ./models/whisper-base-persian-child
+  language: fa
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true
+
+
+qwen_audio:
+  type: qwen_local
+  model_id: Qwen/Qwen2-Audio-7B-Instruct
+  language: fa
+  audio_input:
+    sample_rate: 16000
+    channels: mono
+    format: float32
+    trim_silence_db: 60
+    normalize_volume: true

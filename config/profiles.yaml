@@ -1,0 +1,174 @@
+default_profile: llm
+
+profiles:
+
+  # whisper only
+  raw:
+    model_name: whisper
+    data:
+      source: cached            # cached | hf_stream | mic | <file path>
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  #  Whisper Base + rule-based lexicon correction
+  classic:
+    model_name: whisper
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: classic
+      lexicon_path: config/lexicon.json
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  #  Whisper Base + Gemini LLM correction  (default)
+  llm:
+    model_name: whisper
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: llm
+      provider: google
+      llm_model: gemini-2.5-flash
+      prompt_path: config/llm_prompt.txt
+      lexicon_path: config/lexicon.json
+      rate_limit_delay: 2.0
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  # vosk ASR, no post-processing
+  vosk:
+    model_name: vosk
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+      use_vocab_boosting: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  vosk_boosted:
+    model_name: vosk
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+      use_vocab_boosting: true
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+
+  # Direct Audio-to-LLM Pipelines (No ASR)
+  gemini_3.5_direct:
+    model_name: gemini_3.5_flash
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  gemini_3_direct:
+    model_name: gemini_3_flash
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  gemini_2.5_direct:
+    model_name: gemini_2.5_flash
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  whisper_large:
+    model_name: whisper_large
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  whisper_fine_tuned:
+    model_name: whisper_fine_tuned
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  whisper_base:
+    model_name: whisper_base
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+  whisper_base_fine_tuned:
+    model_name: whisper_base_fine_tuned
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
+
+
+  qwen_direct:
+    model_name: qwen_audio
+    data:
+      source: cached
+      cache_dir: data/psrb_child_dataset
+      use_noise_reduction: false
+    postprocessing:
+      type: none
+    run:
+      max_samples: 14
+      exclude_samples: [2]
