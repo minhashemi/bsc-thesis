@@ -1,5 +1,7 @@
 # Enhancing Automatic Speech Recognition for Child Speech in Low-Resource Languages
 
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22106453-blue)](https://doi.org/10.5281/zenodo.22106453)
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/minhashemi/bsc-thesis/blob/main/bsc_thesis.ipynb)
 
 ## Project Structure
